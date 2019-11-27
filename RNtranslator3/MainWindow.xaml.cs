@@ -25,6 +25,7 @@ namespace RNtranslator3
             {
                 {"I", 1 }, {"V", 5}, {"X", 10}, {"L", 50}, {"C", 100 }, {"D", 500 }, {"M", 1000 }
             };
+
         public MainWindow()
         {
             InitializeComponent();
@@ -40,39 +41,25 @@ namespace RNtranslator3
             {
                 try
                 {
-                    
                     if (i + 1 < chars.Count)
                     {
                         if (romanNumerals[chars[i + 1].ToString()] > romanNumerals[chars[i].ToString()])
                         {
                             sum -= romanNumerals[chars[i].ToString()];
                         }
-                        else
-                        {
-                            sum += romanNumerals[chars[i].ToString()];
-                        }
-
+                        else sum += romanNumerals[chars[i].ToString()];
                     }
-                    else
-                    {
-                        sum += romanNumerals[chars[i].ToString()];
-                    }
-                    
+                    else sum += romanNumerals[chars[i].ToString()];
                 }
-
-
-
                 catch (Exception)
                 {
-                    errorMessage.Text =  string.Format("{0} is not a Roman numeral",chars[i]);
+                    errorMessage.Text = string.Format("{0} is not a Roman numeral", chars[i]);
                 }
-                
             }
+
             return sum;
         }
-
-
-
+               
         private void RomanNumeralInput_TextChanged(object sender, TextChangedEventArgs e)
         {
             errorMessage.Text = "";
